@@ -1,3 +1,9 @@
+# Update cookie_string and build as needed. Also added Oracle download 
+# specific path to the build hash string based on the build.
+# Download links can be found here:
+# http://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase8-2177648.html
+# The extended download path seems to start with 8u121.
+#
 class windows_java::params {
   $jdk_base_install_name = 'Java SE Development Kit'
   $cookie_string = 'oraclelicense=accept-securebackup-cookie'
