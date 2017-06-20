@@ -17,10 +17,15 @@ define windows_java::download (
   }
   debug("Downloading from source ${source} to ${temp_target}")
   info("Downloading file ${filename}")
-  pget{ $name:
-    source         => $source,
-    target         => $temp_target,
-    targetfilename => $filename,
-    headerHash     => $header_hash,
+  #     source         => 'https://s3-us-west-2.amazonaws.com/tseteam/files/jdk-8u45-windows-x64.exe', - use this line to download from s3
+  # pget{ $name:
+  #   source         => $source,
+  #   target         => $temp_target,
+  #   targetfilename => $filename,
+  #   headerHash     => $header_hash,
+  # }
+  file { "${temp_target}${filename} :
+    ensure => file,
+    source => "puppet:///modules/${module_name}/${filename}",
   }
 }
